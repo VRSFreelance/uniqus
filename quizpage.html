@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Uniqus – California Climate Accountability Laws</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+    <style>
+        .hero-content {
+            max-width: 23.438rem;
+            padding: 10px 20px;
+            background: #ffffffba;
+            border-radius: 35px;
+            margin: 166px 180px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, .15);
+            text-align: center;
+        }
+        .hero-content p {
+            margin-top: 20px;
+        }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #000;
+            font-weight: 600;
+        }
+        .progress-label {
+            font-family: "Inter", sans-serif;
+        }
+
+        /* Tablet & below */
+        @media (max-width: 992px) {
+            .hero {
+                height: auto;
+                min-height: 320px;
+                background-position: center center;
+                border-radius: 0 0 65px 65px;
+                padding-top: 4rem;
+                padding-bottom: 2rem;
+            }
+        }
+        /* Small mobile */
+        @media (max-width: 600px) {
+            .hero {
+                height: 43vh;
+                background-position: center center;
+                padding-top: 4rem;
+                padding-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-- HERO -->
+<header class="hero" role="banner" aria-label="California Climate Accountability Laws">
+    <div class="hero-topbar">
+        <div class="brand">
+            <img src="images/Uniqus.png" alt="Uniqus Logo" class="brand-logo">
+        </div>
+    </div>
+    <div class="hero-content">
+        <p class="hero-sub"> Preliminary California Climate Law Applicability Assessment </p>
+    </div>
+</header>
+
+<!-- Question UI -->
+<section id="screen-quiz" class="py-4">
+    <div class="container-xxl">
+        <div class="question-box">
+            <h3 id="quiz-question"></h3>
+        </div>
+        <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap" id="answer-buttons">
+            <button class="answer-btn btn-yes" onclick="nextQuestion('YES')">YES</button>
+            <button class="answer-btn btn-no" onclick="nextQuestion('NO')">NO</button>
+            <button class="answer-btn btn-unsure" onclick="nextQuestion('UNSURE')">UNSURE</button>
+        </div>
+        <div class="progress-wrap">
+            <div class="progress-outer">
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-label" id="progressLabel"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Result Page -->
+<section id="result-screen" class="result-section d-none">
+    <div class="row align-items-center">
+        <h5 class="mb-4 text-center" style="font-weight: 600;">Thank you for completing your preliminary applicability assessment!</h5>
+        <div class="col-md-6">
+            <ul class="result-list">
+                <li id="sb253"><span class="icon"></span> Applicability of SB 253</li>
+                <li id="sb261"><span class="icon"></span> Applicability of SB 261</li>
+                <li id="doingCA"><span class="icon"></span> Doing business in California</li>
+            </ul>
+        </div>
+        <div class="col-md-6 text-center">
+            <p id="result-message" class="mt-3"></p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="https://uniqus.com" class="btn btn-primary visit-btn mt-4">Visit Our Website →</a>
+    </div>
+    <div class="legend mt-4">
+        <span><i class="bi bi-check-circle-fill" style="color: #48297A;"></i> Applicable </span>
+        <span><i class="bi bi-x-circle-fill" style="color: #48297A;"></i> Not Applicable </span>
+        <span><i class="bi bi-question-circle-fill" style="color: #48297A;"></i> Unsure </span>
+    </div>
+</section>
+
+<!-- Info Form -->
+<section id="info-screen" class="result-section d-none">
+    <div class="result-content text-center"></div>
+    <h5 class="mb-4">
+        <b>Your Preliminary California Climate Law Applicability Assessment is ready. 
+            Please complete the below form to proceed.</b></h5>
+
+    <form id="user-info-form" action="contact.php" method="POST">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+            <input type="text" class="form-control mt-3" id="designation" name="designation" placeholder="Designation" required>
+        </div>
+        <div class="col-md-4 mb-3">
+            <input type="text" class="form-control" id="orgname" name="orgname" placeholder="Organization Name" required>
+            <input type="email" class="form-control mt-3" id="email" name="email" placeholder="Email Address" required>
+        </div>
+        
+        <!-- Hidden UTM fields -->
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_term" id="utm_term">
+        <input type="hidden" name="utm_content" id="utm_content">
+
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-primary visit-btn">See Results →</button>
+        </div>
+    </div>
+</form>
+
+<div class="progress-wrap mb-4">
+    <div class="progress-outer">
+        <div class="progress-fill" id="progressFillInfo"></div>
+        <div class="progress-label" id="progressLabelInfo"></div>
+    </div>
+</div>
+</section>
+
+<!-- Scripts -->
+<!-- Scripts -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmFields = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+
+    utmFields.forEach(field => {
+        // 1. Prefer URL param if available
+        let value = urlParams.get(field);
+
+        // 2. If not in URL, fallback to sessionStorage
+        if (!value) {
+            value = sessionStorage.getItem(field);
+        }
+
+       // 3. Save back into sessionStorage (so it persists across pages)
+        if (value !== null && value !== undefined) {
+            sessionStorage.setItem(field, value);
+        }
+
+        // 4. Always populate hidden inputs (even if empty string)
+        const input = document.getElementById(field);
+        if (input) {
+            input.value = value || "";
+        }
+    });
+});
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
+
